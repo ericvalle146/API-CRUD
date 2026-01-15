@@ -4,13 +4,22 @@ declare(strict_types=1);
 
 namespace App\Actions\Task;
 
+use App\DTOs\Task\FetchTaskListDTO;
 use App\Models\Task;
-use Illuminate\Database\Eloquent\Collection;
 
 class FetchTasksList
 {
-    public function execute(): Collection
+    public function __construct(
+        private FetchTaskListDTO $fetch_task_list_dto
+    ) {}
+
+    public function execute()
     {
-        return Task::all();
+        return Task::query()->paginate(
+            $this->fetch_task_list_dto->per_page,
+            ['*'],
+            'page',
+            $this->fetch_task_list_dto->page
+        );
     }
 }

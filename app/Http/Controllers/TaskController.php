@@ -10,6 +10,7 @@ use App\Actions\Task\FetchTask;
 use App\Actions\Task\FetchTasksList;
 use App\Actions\Task\UpdateTask;
 use App\DTOs\Task\CreateTaskDTO;
+use App\DTOs\Task\FetchTaskListDTO;
 use App\DTOs\Task\UpdateTaskDTO;
 use App\Http\Resources\TaskResource;
 use App\Http\Responses\ApiSuccessResponse;
@@ -17,9 +18,9 @@ use App\Http\Responses\NoContentResponse;
 
 class TaskController extends Controller
 {
-    public function index(FetchTasksList $action): ApiSuccessResponse
+    public function index(FetchTaskListDTO $dto, FetchTasksList $action): ApiSuccessResponse
     {
-        $tasks = $action->execute();
+        $tasks = $action->execute($dto);
 
         return new ApiSuccessResponse(TaskResource::collection($tasks));
 
