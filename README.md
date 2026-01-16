@@ -1,5 +1,10 @@
 # API CRUD
 
+## Como clonar o projeto
+
+- `git clone https://github.com/ericvalle146/api-crud.git`
+- `cd api-crud`
+
 ## Como rodar o projeto
 
 1. Copie o arquivo de ambiente:
