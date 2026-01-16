@@ -6,8 +6,17 @@ meta {
 
 put {
   url: http://localhost/api/tasks/{id}
-  body: none
+  body: json
   auth: inherit
+}
+
+body:json {
+  {
+    "title": "seu titulo aqui",
+    "description": "sua descrição aqui",
+    "status": "pending/in_progress/completed",
+    "due_date": "YYYY-MM-DD"
+  }
 }
 
 settings {

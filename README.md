@@ -9,9 +9,12 @@
 
 1. Copie o arquivo de ambiente:
    - `cp .env.example .env`
-2. Suba os containers com o Sail:
+2. Instale as dependencias PHP:
+   - `composer install`
+3. Suba os containers com o Sail:
    - `./vendor/bin/sail up -d`
-3. Gere a key e rode as migrations:
+4. Configure as variaveis do `.env` para o banco padrao Postgres iniciado pelo Sail.
+5. Gere a key e rode as migrations:
    - `./vendor/bin/sail artisan key:generate`
    - `./vendor/bin/sail artisan migrate`
 
@@ -21,6 +24,9 @@ Se precisar parar os containers:
 ## Como rodar os testes
 
 - `./vendor/bin/sail test`
+
+## Rotas de api
+- `As rotas de API você encontra na pasta routes/doc`
 
 
 ## Decisões técnicas adotadas
